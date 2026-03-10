@@ -1,14 +1,85 @@
 // src/components/App.tsx
 
-import Alert from "./Alert";
+// import Alert from "./Alert";
+
+// export default function App() {
+//   return (
+//     <>
+//       <Alert />
+//       <Alert type="success" />
+//       <Alert type="error" />
+//     </>
+//   );
+// }
+
+// src/components/App.tsx
+
+// import Button from "./Button";
+
+// export default function App() {
+//   return (
+//     <>
+//       <Button variant="primary" text="Login" />
+//       <Button variant="secondary" text="Follow" />
+//     </>
+//   );
+// }
+
+// import UserMenu from "./UserMenu";
+
+// export default function App() {
+//   return (
+//     <div>
+//       <UserMenu name="Elizabeth" />
+//     </div>
+//   );
+// }
+
+// src/components/App.tsx
+
+// export default function App() {
+//   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+//     console.log("Clicked!", event);
+//     console.log("Target:", event.target); // сам <button>
+//   };
+
+//   return <button onClick={handleClick}>Click me!</button>;
+// }
+
+// src/App.tsx
+
+import { useState } from "react";
+
+interface Values {
+  x: number;
+  y: number;
+}
 
 export default function App() {
+  const [values, setValues] = useState<Values>({ x: 0, y: 0 });
+
+  const updateX = () => {
+    setValues({
+      ...values,
+      x: values.x + 1,
+    });
+  };
+
+  const updateY = () => {
+    setValues({
+      ...values,
+      y: values.y + 1,
+    });
+  };
+
   return (
-    <>
-      <Alert />
-      <Alert type="success" />
-      <Alert type="error" />
-    </>
+    <div>
+      <p>
+        x: {values.x}, y: {values.y}
+      </p>
+      <button onClick={updateX}>Update x</button>
+      <button onClick={updateY}>Update y</button>
+    </div>
   );
 }
 
